@@ -5,18 +5,29 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    height: 100vh;
+    justify-content: flex-start;
+    min-height: 100vh;
     margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 h1 {
     color: #00ffcc;
     text-shadow: 2px 2px #ff007f;
+    text-align: center;
+}
+
+p {
+    text-align: center;
 }
 
 .choices {
     margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
 }
 
 button {
@@ -27,9 +38,8 @@ button {
     font-size: 18px;
     font-weight: bold;
     cursor: pointer;
-    margin: 0 10px;
     border-radius: 8px;
-    transition: 0.2s;
+    transition: transform 0.1s, background-color 0.2s, box-shadow 0.2s;
 }
 
 button:hover {
@@ -38,21 +48,50 @@ button:hover {
     box-shadow: 0 0 15px #00ffcc;
 }
 
+button:active {
+    transform: scale(0.95);
+}
+
+.control-btn {
+    margin-top: 20px;
+    border-color: #ff007f;
+    padding: 10px 20px;
+    font-size: 14px;
+}
+
+.control-btn:hover {
+    background-color: #ff007f;
+    color: #fff;
+    box-shadow: 0 0 15px #ff007f;
+}
+
 .result-box {
     font-size: 22px;
     margin-top: 20px;
-    min-height: 40px;
+    min-height: 90px;
     font-weight: bold;
     text-align: center;
 }
 
+/* Win/Loss Result Animations */
+.win-animate {
+    animation: bounce 0.5s ease-in-out;
+    color: #00ffcc;
+}
+
+.lose-animate {
+    animation: shake 0.4s ease-in-out;
+    color: #ff007f;
+}
+
 .score-board {
     display: flex;
-    gap: 40px;
+    gap: 30px;
     font-size: 20px;
-    margin-top: 30px;
+    margin-top: 20px;
     border-top: 2px dashed #555;
     padding-top: 20px;
+    align-items: center;
 }
 
 .score {
@@ -60,4 +99,57 @@ button:hover {
     font-size: 28px;
     display: block;
     text-align: center;
+}
+
+#winStreak {
+    color: #ffcc00;
+}
+
+.history-container {
+    margin-top: 30px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.history-container h3 {
+    color: #00ffcc;
+    border-bottom: 1px solid #444;
+    padding-bottom: 5px;
+}
+
+#historyList {
+    list-style: none;
+    padding: 0;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+#historyList li {
+    padding: 6px;
+    border-bottom: 1px dashed #333;
+    font-size: 14px;
+}
+
+/* Animations Keyframes */
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-6px); }
+    75% { transform: translateX(6px); }
+}
+
+/* Responsive Breakpoint */
+@media (max-width: 480px) {
+    button {
+        padding: 12px 20px;
+        font-size: 16px;
+    }
+    .score-board {
+        gap: 15px;
+    }
 }
