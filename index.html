@@ -12,17 +12,29 @@
     <p>Choose your move to play against the computer:</p>
 
     <div class="choices">
-        <button id="rock">🪨 Rock</button>
-        <button id="paper">📄 Paper</button>
-        <button id="scissors">✂️ Scissors</button>
+        <button id="rock" class="choice-btn">🪨 Rock</button>
+        <button id="paper" class="choice-btn">📄 Paper</button>
+        <button id="scissors" class="choice-btn">✂️ Scissors</button>
     </div>
 
     <div class="result-box" id="gameResult">Click a button to start!</div>
 
     <div class="score-board">
         <div>Player <span class="score" id="playerScore">0</span></div>
+        <div class="streak-box">Streak 🔥<span class="score" id="winStreak">0</span></div>
         <div>Computer <span class="score" id="computerScore">0</span></div>
     </div>
+
+    <button id="resetBtn" class="control-btn">🔄 Reset Game</button>
+
+    <div class="history-container">
+        <h3>Match History</h3>
+        <ul id="historyList"></ul>
+    </div>
+
+    <audio id="winSound" src="https://actions.google.com/sounds/v1/cartoon/slide_whistle_to_drum_roll.ogg" preload="auto"></audio>
+    <audio id="loseSound" src="https://actions.google.com/sounds/v1/cartoon/splat.ogg" preload="auto"></audio>
+    <audio id="tieSound" src="https://actions.google.com/sounds/v1/digital/clink.ogg" preload="auto"></audio>
 
     <script src="script.js"></script>
 </body>
